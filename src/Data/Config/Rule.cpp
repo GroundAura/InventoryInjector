@@ -48,12 +48,12 @@ namespace Data
 		return valid;
 	}
 
-	void Rule::SetInfo(RE::GFxValue* a_entryObject, bool& a_needsIconUpdate) const
+	bool Rule::SetInfo(RE::GFxValue* a_entryObject, bool& a_needsIconUpdate) const
 	{
 		assert(a_entryObject);
 
 		if (!Match(a_entryObject)) {
-			return;
+			return false;
 		}
 
 		a_needsIconUpdate |= HasInfo();
@@ -65,6 +65,8 @@ namespace Data
 
 			a_entryObject->SetMember(name.c_str(), value);
 		}
+
+		return true;
 	}
 
 	void Rule::SetIcon(RE::GFxValue* a_entryObject) const

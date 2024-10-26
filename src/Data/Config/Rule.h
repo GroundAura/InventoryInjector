@@ -14,7 +14,7 @@ namespace Data
 
 		bool Validate();
 
-		void SetInfo(RE::GFxValue* a_entryObject, bool& a_needsIconUpdate) const;
+		bool SetInfo(RE::GFxValue* a_entryObject, bool& a_needsIconUpdate) const;
 
 		void SetIcon(RE::GFxValue* a_entryObject) const;
 
