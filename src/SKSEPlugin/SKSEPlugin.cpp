@@ -21,7 +21,7 @@ namespace
 #ifndef NDEBUG
 		const auto level = spdlog::level::trace;
 #else
-		const auto level = spdlog::level::info;
+		const auto level = spdlog::level::trace;
 #endif
 
 		auto log = std::make_shared<spdlog::logger>("global log"s, std::move(sink));

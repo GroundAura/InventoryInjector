@@ -1,5 +1,6 @@
 #include "CustomDataManager.h"
 
+#include "GFxUtil.h"
 #include "Data/Config/RuleParser.h"
 
 #include <json/json.h>
@@ -93,10 +94,21 @@ namespace Data
 		RE::GFxValue* a_entryObject,
 		std::function<void(RE::GFxValue*)> a_processIconCallback) const
 	{
+		size_t totalRules = 0;
+		size_t appliedRules = 0;
+
 		bool needsIconUpdate = false;
 		for (const auto& rule : _rules) {
-			rule.SetInfo(a_entryObject, needsIconUpdate);
+			totalRules++;
+			appliedRules += rule.SetInfo(a_entryObject, needsIconUpdate);
 		}
+
+		logger::trace(
+			"{}/{} rules applied for ({}) {}",
+			appliedRules,
+			totalRules,
+			static_cast<int>(a_entryObject->GetType()),
+			GFxUtil::Stringify(*a_entryObject));
 
 		if (needsIconUpdate && a_processIconCallback) {
 			a_entryObject->DeleteMember("iconLabel");
