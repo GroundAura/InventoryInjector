@@ -12,14 +12,21 @@ namespace Data
 		RE::FormID rawFormID;
 		std::istringstream(id) >> std::hex >> rawFormID;
 
+		if (const auto mergeMapper = SKSE::GetMergeMapperInterface()) {
+			std::tie(plugin, rawFormID) = mergeMapper->GetNewFormID(plugin.c_str(), rawFormID);
+		}
+
 		const auto dataHandler = RE::TESDataHandler::GetSingleton();
 		const auto file = dataHandler->LookupModByName(plugin);
 		if (!file || file->compileIndex == 0xFF) {
+			logger::warn("Plugin file not found: {}", plugin);
 			return 0x00000000;
 		}
 
 		RE::FormID formID = file->compileIndex << 24;
-		formID += file->smallFileCompileIndex << 12;
+		if (file->compileIndex == 0xFE && file->IsLight()) {
+			formID += file->smallFileCompileIndex << 12;
+		}
 		formID += rawFormID;
 
 		return formID;
