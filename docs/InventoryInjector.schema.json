@@ -214,7 +214,20 @@
               "SHFW": { "$ref": "#/$defs/assign-data" },
               "infoHunger": { "$ref": "#/$defs/assign-data" },
               "restoreCold": { "$ref": "#/$defs/assign-data" },
-              "fWarmth": { "$ref": "#/$defs/assign-data" }
+              "fWarmth": { "$ref": "#/$defs/assign-data" },
+              "potionSort": { "$ref": "#/$defs/assign-data" },
+              "foodSort": { "$ref": "#/$defs/assign-data" },
+              "foodSortGourmet": { "$ref": "#/$defs/assign-data" },
+              "infoGourmet": { "$ref": "#/$defs/assign-data" },
+              "foodTypeDisplay": { "$ref": "#/$defs/assign-data" },
+              "magicClassDisplayDummy": { "$ref": "#/$defs/assign-data" },
+              "magicTypeDisplayDummy": { "$ref": "#/$defs/assign-data" },
+              "magicTypeDisplay": { "$ref": "#/$defs/assign-data" },
+              "miscClassDisplay": { "$ref": "#/$defs/assign-data" },
+              "miscTypeDisplay": { "$ref": "#/$defs/assign-data" },
+              "subTypeKimari": { "$ref": "#/$defs/assign-data" },
+              "powerClassDisplay": { "$ref": "#/$defs/assign-data" },
+              "powerTypeDisplay": { "$ref": "#/$defs/assign-data" }
             },
             "minProperties": 1
           }
