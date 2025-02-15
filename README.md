@@ -16,7 +16,7 @@ Injects custom icons and other information into SkyUI's inventory item interface
 
 ## Building
 ```
-git clone https://github.com/Exit-9B/InventoryInjector
+git clone --branch alchemy-fix --single-branch https://github.com/GroundAura/InventoryInjector
 cd InventoryInjector
 git submodule init
 git submodule update
